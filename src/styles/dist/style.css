@@ -148,8 +148,14 @@ a:active {
   font-size: 0.8125rem;
 }
 #login-nav li {
-  color: var(--gray);
   list-style: none;
+}
+#login-nav li:hover {
+  text-decoration: underline;
+}
+#login-nav a,
+#login-nav li {
+  color: var(--gray);
 }
 
 #line-break {
