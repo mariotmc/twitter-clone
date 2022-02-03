@@ -1,0 +1,25 @@
+@use "functions" as *;
+@use "variables" as *;
+
+.icon {
+  height: auto;
+  fill: var(--white);
+}
+
+.small-icon {
+  width: 45px;
+}
+
+.large-icon {
+  width: 445px;
+}
+
+#google-icon {
+  width: 18px;
+  height: auto;
+}
+
+#apple-icon {
+  width: 18px;
+  height: auto;
+}
