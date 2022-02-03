@@ -2,6 +2,7 @@
 @use "variables" as *;
 
 html {
+  height: 100%;
   font-size: 100%;
   box-sizing: border-box;
 }
@@ -13,8 +14,13 @@ html {
 }
 
 body {
+  height: inherit;
   margin: 0;
   padding: 0;
+  color: var(--white);
+  background-color: var(--dark-blue);
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 
 h1,
@@ -22,10 +28,15 @@ h2,
 h3 {
   margin-top: 0;
   line-height: 1.1;
+  font-family: var(--font-title);
 }
 
 a,
 a:visited,
 a:active {
   text-decoration: none;
+}
+
+#root {
+  height: inherit;
 }
