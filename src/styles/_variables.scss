@@ -1,11 +1,56 @@
-// FONTS
-:root {
-	--font-body: Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: TwitterChirpExtendedHeavy;
+  src: url(https://abs.twimg.com/fonts/v1/chirp-extended-heavy-web.woff2) format("woff2");
+  src: url(https://abs.twimg.com/fonts/v1/chirp-extended-heavy-web.woff) format("woff");
+  font-weight: 800;
+  font-style: "normal";
+  font-display: "swap";
+}
+@font-face {
+  font-family: TwitterChirp;
+  src: url(https://abs.twimg.com/fonts/v2/chirp-regular-web.woff2) format("woff2");
+  src: url(https://abs.twimg.com/fonts/v2/chirp-regular-web.woff) format("woff");
+  font-weight: 400;
+  font-style: "normal";
+  font-display: "swap";
+}
+@font-face {
+  font-family: TwitterChirp;
+  src: url(https://abs.twimg.com/fonts/v2/chirp-medium-web.woff2) format("woff2");
+  src: url(https://abs.twimg.com/fonts/v2/chirp-medium-web.woff) format("woff");
+  font-weight: 500;
+  font-style: "normal";
+  font-display: "swap";
+}
+@font-face {
+  font-family: TwitterChirp;
+  src: url(https://abs.twimg.com/fonts/v2/chirp-bold-web.woff2) format("woff2");
+  src: url(https://abs.twimg.com/fonts/v2/chirp-bold-web.woff) format("woff");
+  font-weight: 700;
+  font-style: "normal";
+  font-display: "swap";
+}
+@font-face {
+  font-family: TwitterChirp;
+  src: url(https://abs.twimg.com/fonts/v2/chirp-heavy-web.woff2) format("woff2");
+  src: url(https://abs.twimg.com/fonts/v2/chirp-heavy-web.woff) format("woff");
+  font-weight: 800;
+  font-style: "normal";
+  font-display: "swap";
 }
 
-
-//COLOURS
 :root {
-	--white: hsl(0, 0%, 100%);
-	--black: hsl(0, 0%, 0%);
+  // FONTS
+  --font-title: "TwitterChirpExtendedHeavy", "Poppins";
+  --font-body: "TwitterChirp", "Poppins";
+  //COLOURS
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --light-blue: rgb(29, 155, 240);
+  --blue: rgb(0, 111, 214);
+  --dark-blue: rgb(21, 32, 43);
+  --gray: rgb(136, 153, 166);
+  --dark-gray: rgb(56, 68, 77);
 }
