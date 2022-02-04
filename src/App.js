@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LoginScreen from "./components/LoginScreen/LoginScreen";
+import SignupModal from "./components/Signup/SignupModal";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -7,7 +8,8 @@ function App() {
   return (
     <>
       {/* {!isLoggedIn ? <LoginScreen /> : <Home />} */}
-      {!isLoggedIn && <LoginScreen />}
+      {/* {!isLoggedIn && <LoginScreen />} */}
+      <SignupModal />
     </>
   );
 }
