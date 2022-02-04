@@ -6,6 +6,10 @@
   fill: var(--white);
 }
 
+.very-small-icon {
+  width: 30px;
+}
+
 .small-icon {
   width: 45px;
 }
@@ -22,4 +26,11 @@
 #apple-icon {
   width: 18px;
   height: auto;
+}
+
+.input-arrow-down-symbol {
+  position: absolute;
+  right: 13px;
+  top: 20px;
+  z-index: -1;
 }
