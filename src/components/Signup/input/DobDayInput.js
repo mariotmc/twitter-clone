@@ -1,13 +1,19 @@
-import { ArrowDownSymbol } from "./ArrowDownSymbol";
+import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 
-export const DobDayInput = () => {
+export const DobDayInput = (props) => {
   return (
     <div id="dob-day">
       <label className="dob-input-label" htmlFor="day">
         Day
       </label>
-      <select name="day" id="day" className="dob-input">
-        <option className="day-option" disabled selected value></option>
+      <select
+        name="day"
+        id="day"
+        className="dob-input"
+        onChange={props.handleChange}
+        value={props.formData.day || "0"}
+      >
+        <option className="day-option" value="0" disabled></option>
         <option className="day-option" value="1">
           1
         </option>
