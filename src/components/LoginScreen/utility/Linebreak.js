@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Linebreak = () => {
   return (
     <div id="line-break">
