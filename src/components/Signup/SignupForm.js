@@ -1,27 +1,29 @@
-import { FormNameInput } from "./utility/FormNameInput";
-import { FormEmailInput } from "./utility/FormEmailInput";
-import { PhoneAlternative } from "./utility/PhoneAlternative";
-import { DobText } from "./utility/DobText";
-import { DobMonthInput } from "./utility/DobMonthInput";
-import { DobDayInput } from "./utility/DobDayInput";
-import { DobYearInput } from "./utility/DobYearInput";
+import { createContext, useContext } from "react";
+import { StateContext } from "../../App";
+import SignupFirstPage from "./pages/SignupFirstPage";
+import SignupSecondPage from "./pages/SignupSecondPage";
+import SignupThirdPage from "./pages/SignupThirdPage";
+import SignupFourthPage from "./pages/SignupFourthPage";
+import SignupFifthPage from "./pages/SignupFifthPage";
+
+export const FormInputChangeContext = createContext();
 
 export const SignupForm = () => {
+  const { setFormData, page } = useContext(StateContext);
+
+  const handleChange = (e) => {
+    setFormData((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
   return (
-    <form id="signup-form">
-      <FormNameInput />
-
-      <FormEmailInput />
-
-      <PhoneAlternative />
-
-      <DobText />
-
-      <div id="dob-inputs-container">
-        <DobMonthInput />
-        <DobDayInput />
-        <DobYearInput />
-      </div>
-    </form>
+    <FormInputChangeContext.Provider value={handleChange}>
+      {page === 1 && <SignupFirstPage />}
+      {page === 2 && <SignupSecondPage />}
+      {page === 3 && <SignupThirdPage />}
+      {page === 4 && <SignupFourthPage />}
+      {page === 5 && <SignupFifthPage />}
+    </FormInputChangeContext.Provider>
   );
 };
