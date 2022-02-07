@@ -1,6 +1,12 @@
 import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
+import { useContext } from "react";
+import { StateContext } from "../../../App";
+import { FormInputChangeContext } from "../SignupForm";
 
-export const DobMonthInput = (props) => {
+export const DobMonthInput = () => {
+  const { formData } = useContext(StateContext);
+  const { handleChange } = useContext(FormInputChangeContext);
+
   return (
     <div id="dob-month">
       <label className="dob-input-label" htmlFor="month">
@@ -10,8 +16,8 @@ export const DobMonthInput = (props) => {
         name="month"
         id="month"
         className="dob-input"
-        onChange={props.handleChange}
-        value={props.formData.month || "0"}
+        onChange={handleChange}
+        value={formData.month || "0"}
       >
         <option className="month-option" value="0" disabled defaultChecked></option>
         <option className="month-option" value="1">

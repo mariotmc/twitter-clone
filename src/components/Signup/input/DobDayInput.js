@@ -1,18 +1,18 @@
+import { useContext } from "react";
+import { StateContext } from "../../../App";
+import { FormInputChangeContext } from "../SignupForm";
 import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 
-export const DobDayInput = (props) => {
+export const DobDayInput = () => {
+  const { formData } = useContext(StateContext);
+  const { handleChange } = useContext(FormInputChangeContext);
+
   return (
     <div id="dob-day">
       <label className="dob-input-label" htmlFor="day">
         Day
       </label>
-      <select
-        name="day"
-        id="day"
-        className="dob-input"
-        onChange={props.handleChange}
-        value={props.formData.day || "0"}
-      >
+      <select name="day" id="day" className="dob-input" onChange={handleChange} value={formData.day || "0"}>
         <option className="day-option" value="0" disabled></option>
         <option className="day-option" value="1">
           1

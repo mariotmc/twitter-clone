@@ -1,4 +1,11 @@
-export const FormNameInput = (props) => {
+import { useContext } from "react";
+import { StateContext } from "../../../App";
+import { FormInputChangeContext } from "../SignupForm";
+
+export const FormNameInput = () => {
+  const { formData } = useContext(StateContext);
+  const { handleChange } = useContext(FormInputChangeContext);
+
   return (
     <div id="signup-name-input-container" className="signup-input-container">
       <input
@@ -8,8 +15,8 @@ export const FormNameInput = (props) => {
         name="name"
         placeholder="Name"
         required
-        onChange={props.handleChange}
-        value={props.formData.name}
+        onChange={handleChange}
+        value={formData.name}
       />
       <label className="form-label" htmlFor="name">
         Name

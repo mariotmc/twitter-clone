@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import { StateContext } from "../../../App";
+import { FormInputChangeContext } from "../SignupForm";
 import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 
-export const DobYearInput = (props) => {
+export const DobYearInput = () => {
+  const { formData } = useContext(StateContext);
+  const { handleChange } = useContext(FormInputChangeContext);
+
   return (
     <div id="dob-year">
       <label className="dob-input-label" htmlFor="year">
@@ -10,8 +16,8 @@ export const DobYearInput = (props) => {
         name="year"
         id="year"
         className="dob-input"
-        onChange={props.handleChange}
-        value={props.formData.year || "0"}
+        onChange={handleChange}
+        value={formData.year || "0"}
       >
         <option className="year-option" value="0" disabled></option>
         <option className="year-option" value="2022">

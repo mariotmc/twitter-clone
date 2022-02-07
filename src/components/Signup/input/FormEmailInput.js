@@ -1,4 +1,11 @@
-export const FormEmailInput = (props) => {
+import { useContext } from "react";
+import { StateContext } from "../../../App";
+import { FormInputChangeContext } from "../SignupForm";
+
+export const FormEmailInput = () => {
+  const { formData } = useContext(StateContext);
+  const { handleChange } = useContext(FormInputChangeContext);
+
   return (
     <div id="signup-email-input-container" className="signup-input-container">
       <input
@@ -8,8 +15,8 @@ export const FormEmailInput = (props) => {
         name="email"
         placeholder="Email"
         required
-        onChange={props.handleChange}
-        value={props.formData.email}
+        onChange={handleChange}
+        value={formData.email}
       />
       <label className="form-label" htmlFor="email">
         Email
