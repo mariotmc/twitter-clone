@@ -2,11 +2,16 @@
 @use "variables" as *;
 
 #signup-modal-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100%;
   background-color: rgba(91, 112, 131, 0.4);
+  z-index: 2;
 }
 
 #signup-modal {
@@ -14,7 +19,7 @@
   flex-direction: column;
   width: rem(600);
   height: rem(650);
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgb(0, 0, 0);
   border-radius: rem(15);
 }
 
@@ -22,20 +27,32 @@
   display: flex;
   justify-content: flex-start;
   height: rem(53);
-  padding: 0 rem(15);
+  padding: 0 rem(16);
+}
+
+.close-symbol-wrapper {
+  width: rem(34);
+  height: rem(34);
+  margin: auto 0;
+  text-align: center;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+  }
 }
 
 #signup-close-symbol {
   cursor: pointer;
 }
 
-#signup-modal-heading,
+#signup-first-page-heading,
 #signup-form {
   margin-left: rem(32);
   margin-right: rem(32);
 }
 
-#signup-modal-heading {
+#signup-first-page-heading {
   margin-top: rem(16);
   margin-bottom: rem(28);
   font-family: inherit;
@@ -103,6 +120,7 @@
 }
 
 #signup-phone-alternative {
+  width: fit-content;
   margin: 0;
   padding-top: rem(4);
   color: var(--light-blue);
@@ -141,19 +159,22 @@
     margin-right: rem(12);
   }
 
-  #dob-month,
-  #month {
+  #dob-month {
     width: rem(256);
   }
 
-  #dob-day,
-  #day {
+  #dob-day {
     width: rem(117);
   }
 
-  #dob-year,
-  #year {
+  #dob-year {
     width: rem(139);
+  }
+
+  #month,
+  #day,
+  #year {
+    width: 100%;
   }
 
   #dob-month,
@@ -182,6 +203,7 @@
     font-size: rem(17);
     background-color: transparent;
     border: none;
+    z-index: 1;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -202,7 +224,7 @@
 
   option {
     color: #fff;
-    background-color: rgba(21, 32, 43);
+    background-color: rgb(0, 0, 0);
   }
 }
 
@@ -216,5 +238,91 @@
     margin: 0 auto;
     font-weight: 700;
     color: #0f1419;
+
+    &:disabled {
+      background-color: rgb(120, 124, 124);
+      cursor: default;
+    }
+  }
+}
+
+.arrow-left-symbol {
+  width: rem(34);
+  height: rem(34);
+  cursor: pointer;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+  }
+}
+
+.modal-secondary-head-container {
+  display: flex;
+  align-items: center;
+  height: rem(53);
+  padding: 0 rem(16);
+
+  #signup-second-page-heading {
+    margin: 0;
+  }
+}
+
+#signup-second-page-title {
+  font-family: var(--font-body);
+  font-size: rem(20);
+  color: rgb(217, 217, 217);
+  margin: 0;
+}
+
+#signup-second-page-container {
+  margin: 0 rem(32);
+  padding-bottom: rem(48);
+  text-align: left;
+  color: rgb(217, 217, 217);
+
+  #signup-second-page-heading {
+    font-family: var(--font-body);
+    font-size: rem(23);
+    color: rgb(217, 217, 217);
+    padding-bottom: rem(12);
+  }
+
+  .signup-second-page-input-container {
+    display: flex;
+  }
+
+  .MuiCheckbox-root:hover {
+    background-color: rgba(110, 118, 125, 0.1);
+  }
+
+  .Mui-checked {
+    color: var(--light-blue);
+  }
+
+  .MuiCheckbox-indeterminate {
+    background-color: yellow;
+    color: yellow;
+  }
+
+  h4 {
+    font-size: rem(20);
+    margin-top: rem(32);
+    margin-bottom: 0;
+  }
+
+  label {
+    width: 100%;
+    margin: rem(12) 0 0;
+    font-size: rem(15);
+  }
+
+  #signup-second-page-details-text {
+    margin: rem(40) 0 0;
+    font-size: rem(15);
+
+    a {
+      color: var(--light-blue);
+    }
   }
 }
