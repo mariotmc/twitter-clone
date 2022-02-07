@@ -1,7 +1,7 @@
 import { TwitterIcon } from "./utility/TwitterIcon";
-import { GoogleButton } from "./utility/GoogleButton";
-import { AppleButton } from "./utility/AppleButton";
-import { EmailSignupButton } from "./utility/EmailSignupButton";
+import { GoogleButton } from "./buttons/GoogleButton";
+import { AppleButton } from "./buttons/AppleButton";
+import { EmailSignupButton } from "./buttons/EmailSignupButton";
 import { Linebreak } from "./utility/Linebreak";
 import { TermsOfServiceText } from "./utility/TermsOfServiceText";
 
