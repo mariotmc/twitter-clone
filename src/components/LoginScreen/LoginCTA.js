@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { StateContext } from "../../App";
 import { TwitterIcon } from "./utility/TwitterIcon";
 import { GoogleButton } from "./buttons/GoogleButton";
 import { AppleButton } from "./buttons/AppleButton";
@@ -6,6 +8,8 @@ import { Linebreak } from "./utility/Linebreak";
 import { TermsOfServiceText } from "./utility/TermsOfServiceText";
 
 const LoginCTA = () => {
+  const { redirectUser } = useContext(StateContext);
+
   return (
     <div id="login-cta">
       <TwitterIcon class="icon small-icon" />
@@ -14,18 +18,19 @@ const LoginCTA = () => {
 
       <h2 id="login-secondary-heading">Join Twitter today.</h2>
 
-      <GoogleButton id="google-icon" class="button signup-button" />
+      <GoogleButton id="google-icon" class="button signup-button" text="up" />
 
-      <AppleButton id="apple-icon" class="button signup-button" />
+      <AppleButton id="apple-icon" class="button signup-button" text="up" />
 
       <Linebreak />
 
       <EmailSignupButton />
 
-      <TermsOfServiceText />
+      <TermsOfServiceText id="login-tos" />
 
       <h3 id="login-tertiary-heading">Already have an account?</h3>
-      <button id="signin-button" className="button">
+
+      <button id="signin-button" className="button" onClick={() => redirectUser("login")}>
         Sign in
       </button>
     </div>
