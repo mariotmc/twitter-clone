@@ -243,7 +243,7 @@ a:active {
   margin-bottom: 0.5rem;
 }
 
-#signup-tos {
+#login-tos {
   width: 18.75rem;
   color: var(--gray);
   font-size: 0.6875rem;
@@ -261,7 +261,7 @@ a:active {
   border: 0.0625rem solid var(--dark-gray);
 }
 
-#signup-modal-container {
+.modal-container {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -274,7 +274,7 @@ a:active {
   z-index: 2;
 }
 
-#signup-modal {
+.modal {
   display: flex;
   flex-direction: column;
   width: 37.5rem;
@@ -563,4 +563,75 @@ a:active {
 }
 #signup-second-page-container #signup-second-page-details-text a {
   color: var(--light-blue);
+}
+
+#signup-tos {
+  text-align: center;
+  margin: auto 2rem 1.25rem;
+  font-size: 0.9375rem;
+}
+#signup-tos a {
+  color: var(--light-blue);
+}
+#signup-tos a:hover {
+  text-decoration: underline;
+}
+
+#signup-form-button-container {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 2rem 2.25rem;
+}
+#signup-form-button-container #signup-form-button {
+  width: 100%;
+  height: 2.75rem;
+  margin: 0 auto;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0f1419;
+}
+
+#login-modal-container .close-symbol-wrapper {
+  display: none;
+}
+#login-modal-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18.75rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+}
+#login-modal-container form h3 {
+  margin-top: 1.5625rem;
+  margin-bottom: 2.8125rem;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: 1.4375rem;
+}
+#login-modal-container form #signup-email-input-container {
+  width: 18.75rem;
+}
+#login-modal-container form #google-signup-button {
+  margin-bottom: 1.4375rem;
+}
+#login-modal-container form #signup-next-button-container {
+  padding: 0;
+}
+#login-modal-container form #signup-next-button {
+  width: 18.75rem;
+  height: 2.25rem;
+  padding: 0;
+}
+#login-modal-container #signup-text {
+  margin: auto;
+  font-size: 0.9375rem;
+  color: #6e767d;
+}
+#login-modal-container #signup-text span {
+  color: var(--light-blue);
+  cursor: pointer;
+}
+#login-modal-container #signup-text span:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=style.css.map */
