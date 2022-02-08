@@ -1,16 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBVUfko2wWNMlxVbLQuP78MtfioAotqgI8",
-  authDomain: "twitter-clone-becc1.firebaseapp.com",
-  projectId: "twitter-clone-becc1",
-  storageBucket: "twitter-clone-becc1.appspot.com",
-  messagingSenderId: "644489023451",
-  appId: "1:644489023451:web:3e6a648a173b62fabee1fe",
-};
+const app = initializeApp({
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+});
 
-initializeApp(firebaseConfig);
-const auth = getAuth();
-
-// create a form that on submit will trigger a function that uses createUserWithEmailAndPassword
+export const auth = getAuth(app);
+export default app;
