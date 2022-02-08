@@ -2,8 +2,8 @@ import { SignupForm } from "./SignupForm";
 
 const SignupModal = () => {
   return (
-    <div id="signup-modal-container">
-      <div id="signup-modal">
+    <div className="modal-container">
+      <div className="modal">
         <SignupForm />
       </div>
     </div>
