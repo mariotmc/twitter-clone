@@ -1,7 +1,6 @@
-import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 import { useContext } from "react";
-import { StateContext } from "../../../App";
-import { FormInputChangeContext } from "../SignupForm";
+import { StateContext, FormInputChangeContext } from "../../../App";
+import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 
 export const DobMonthInput = () => {
   const { formData } = useContext(StateContext);

@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { StateContext } from "../../../App";
-import { FormInputChangeContext } from "../SignupForm";
+import { StateContext, FormInputChangeContext } from "../../../App";
 
 export const FormEmailInput = () => {
   const { formData } = useContext(StateContext);
