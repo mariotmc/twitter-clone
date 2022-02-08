@@ -1,7 +1,7 @@
 @use "functions" as *;
 @use "variables" as *;
 
-#signup-modal-container {
+.modal-container {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -14,7 +14,7 @@
   z-index: 2;
 }
 
-#signup-modal {
+.modal {
   display: flex;
   flex-direction: column;
   width: rem(600);
@@ -318,6 +318,91 @@
 
     a {
       color: var(--light-blue);
+    }
+  }
+}
+
+#signup-tos {
+  text-align: center;
+  margin: auto rem(32) rem(20);
+  font-size: rem(15);
+
+  a {
+    color: var(--light-blue);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+#signup-form-button-container {
+  display: flex;
+  justify-content: center;
+  padding: rem(12) rem(32) rem(36);
+
+  #signup-form-button {
+    width: 100%;
+    height: rem(44);
+    margin: 0 auto;
+    font-size: rem(17);
+    font-weight: 700;
+    color: #0f1419;
+  }
+}
+
+#login-modal-container {
+  .close-symbol-wrapper {
+    display: none;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: rem(300);
+    margin: 0 auto;
+    padding: 0 0 rem(48);
+
+    h3 {
+      margin-top: rem(25);
+      margin-bottom: rem(45);
+      align-self: flex-start;
+      font-family: var(--font-body);
+      font-size: rem(23);
+    }
+
+    #signup-email-input-container {
+      width: rem(300);
+    }
+
+    #google-signup-button {
+      margin-bottom: rem(23);
+    }
+
+    #signup-next-button-container {
+      padding: 0;
+    }
+
+    #signup-next-button {
+      width: rem(300);
+      height: rem(36);
+      padding: 0;
+    }
+  }
+
+  #signup-text {
+    margin: auto;
+    font-size: rem(15);
+    color: rgb(110, 118, 125);
+
+    span {
+      color: var(--light-blue);
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
