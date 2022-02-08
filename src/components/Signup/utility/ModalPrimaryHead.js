@@ -6,7 +6,7 @@ export const ModalPrimaryHead = () => {
     <>
       <div id="modal-head-container">
         <div style={{ display: "flex", width: "270px" }}>
-          <CloseSymbol id="signup-close-symbol" width="20px" height="auto" />
+          <CloseSymbol id="signup-close-symbol" width="20px" height="34px" />
         </div>
         <TwitterIcon class="very-small-icon white" />
         <div></div>
