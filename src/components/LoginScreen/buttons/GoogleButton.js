@@ -20,7 +20,7 @@ export const GoogleButton = (props) => {
         ></path>
         <path fill="none" d="M0 0h48v48H0z"></path>
       </svg>
-      <span>Sign up with Google</span>
+      <span>Sign {props.text} with Google</span>
     </button>
   );
 };
