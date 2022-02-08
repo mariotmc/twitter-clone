@@ -1,6 +1,6 @@
-export const TermsOfServiceText = () => {
+export const TermsOfServiceText = ({ id }) => {
   return (
-    <small id="signup-tos">
+    <small id={id}>
       By signing up, you agree to the{" "}
       <a className="tos-links" href="https://twitter.com/en/tos" target="_blank" rel="noreferrer">
         Terms of Service
