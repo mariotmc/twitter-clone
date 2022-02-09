@@ -3,6 +3,8 @@ import { FormNameInput } from "../input/FormNameInput";
 import { FormEmailInput } from "../input/FormEmailInput";
 import { DateOfBirthInput } from "../input/DateOfBirthInput";
 import { FormSignupButton } from "../buttons/FormSignupButton";
+import { PasswordInput } from "../input/PasswordInput";
+import { PasswordConfirmationInput } from "../input/PasswordConfirmationInput";
 
 const SignupThirdPage = () => {
   return (
@@ -11,12 +13,16 @@ const SignupThirdPage = () => {
 
       <h3 id="signup-first-page-heading">Create your account</h3>
 
-      <form id="signup-form">
+      <form id="signup-form-third-page" className="signup-form">
         <FormNameInput />
 
         <FormEmailInput />
 
         <DateOfBirthInput />
+
+        <PasswordInput />
+
+        <PasswordConfirmationInput />
       </form>
 
       <p id="signup-tos">
