@@ -47,7 +47,7 @@
 }
 
 #signup-first-page-heading,
-#signup-form {
+.signup-form {
   margin-left: rem(32);
   margin-right: rem(32);
 }
@@ -324,7 +324,7 @@
 
 #signup-tos {
   text-align: center;
-  margin: auto rem(32) rem(20);
+  margin: rem(10) rem(32) rem(5);
   font-size: rem(15);
 
   a {
@@ -340,6 +340,7 @@
   display: flex;
   justify-content: center;
   padding: rem(12) rem(32) rem(36);
+  margin-top: auto;
 
   #signup-form-button {
     width: 100%;
@@ -405,4 +406,16 @@
       }
     }
   }
+}
+
+.signup-error-message {
+  margin: -15px 0 0;
+  color: rgb(244, 33, 46);
+  font-size: rem(13);
+}
+
+.invalidInputBorder {
+  color: rgb(244, 33, 46);
+  border-color: rgb(244, 33, 46);
+  background-color: rgb(244, 33, 46);
 }
