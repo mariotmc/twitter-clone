@@ -28,7 +28,7 @@ const SignupFirstPage = () => {
 
       <h3 id="signup-first-page-heading">Create your account</h3>
 
-      <form id="signup-form">
+      <form className="signup-form">
         <FormNameInput />
 
         <FormEmailInput />
