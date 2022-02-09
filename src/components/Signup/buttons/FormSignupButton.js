@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../firebase";
 
 export const FormSignupButton = () => {
-  const { handleSignUp, error, loading, setCurrentUser } = useContext(StateContext);
+  const { handleSignUp, loading, setCurrentUser } = useContext(StateContext);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUser(user));
@@ -13,8 +13,14 @@ export const FormSignupButton = () => {
 
   return (
     <div id="signup-form-button-container">
-      {error && <p style={{ display: "block" }}>{error}</p>}
-      <button id="signup-form-button" className="button" disabled={loading} onClick={handleSignUp}>
+      <button
+        id="signup-form-button"
+        className="button"
+        type="submit"
+        form="signup-form-third-page"
+        disabled={loading}
+        onClick={(e) => handleSignUp(e)}
+      >
         Sign up
       </button>
     </div>
