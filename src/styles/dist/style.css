@@ -306,7 +306,7 @@ a:active {
 }
 
 #signup-first-page-heading,
-#signup-form {
+.signup-form {
   margin-left: 2rem;
   margin-right: 2rem;
 }
@@ -567,7 +567,7 @@ a:active {
 
 #signup-tos {
   text-align: center;
-  margin: auto 2rem 1.25rem;
+  margin: 0.625rem 2rem 0.3125rem;
   font-size: 0.9375rem;
 }
 #signup-tos a {
@@ -581,6 +581,7 @@ a:active {
   display: flex;
   justify-content: center;
   padding: 0.75rem 2rem 2.25rem;
+  margin-top: auto;
 }
 #signup-form-button-container #signup-form-button {
   width: 100%;
@@ -634,4 +635,16 @@ a:active {
 }
 #login-modal-container #signup-text span:hover {
   text-decoration: underline;
+}
+
+.signup-error-message {
+  margin: -15px 0 0;
+  color: #f4212e;
+  font-size: 0.8125rem;
+}
+
+.invalidInputBorder {
+  color: #f4212e;
+  border-color: #f4212e;
+  background-color: #f4212e;
 }/*# sourceMappingURL=style.css.map */
