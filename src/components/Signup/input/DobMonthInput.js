@@ -1,10 +1,9 @@
 import { useContext } from "react";
-import { StateContext, FormInputChangeContext } from "../../../App";
+import { StateContext } from "../../../App";
 import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 
 export const DobMonthInput = () => {
-  const { formData } = useContext(StateContext);
-  const { handleChange } = useContext(FormInputChangeContext);
+  const { formData, handleChange } = useContext(StateContext);
 
   return (
     <div id="dob-month">
