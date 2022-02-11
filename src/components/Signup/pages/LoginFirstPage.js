@@ -20,12 +20,12 @@ export const LoginFirstPage = () => {
 
           <Linebreak />
 
-          <SignInEmailInput />
+          <SignInEmailInput id="login-first-page-email" />
         </form>
 
         <LoginNextButton />
 
-        <SignUpCTA />
+        <SignUpCTA id="login-first-page-cta" />
       </div>
     </div>
   );
