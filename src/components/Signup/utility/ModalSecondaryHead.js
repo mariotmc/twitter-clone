@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 import { ArrowLeftSymbol } from "../symbols/ArrowLeftSymbol";
 
 export const ModalSecondaryHead = () => {
-  const { page } = useContext(StateContext);
+  const { page } = useAppContext();
 
   return (
     <div className="modal-secondary-head-container">

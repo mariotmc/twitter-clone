@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const ArrowLeftSymbol = (props) => {
-  const { setPage } = useContext(StateContext);
+  const { setPage } = useAppContext();
 
   const previousPage = () => {
     setPage((currentPage) => currentPage - 1);

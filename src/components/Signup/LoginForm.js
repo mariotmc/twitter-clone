@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { StateContext } from "../../App";
+import { useAppContext } from "../../Context";
 import { LoginFirstPage } from "./pages/LoginFirstPage";
 import { LoginSecondPage } from "./pages/LoginSecondPage";
 
 const LoginForm = () => {
-  const { page } = useContext(StateContext);
+  const { page } = useAppContext();
 
   return (
     <>

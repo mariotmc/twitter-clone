@@ -1,8 +1,8 @@
-import { useContext, useEffect } from "react";
-import { StateContext } from "../../../App";
+import { useEffect } from "react";
+import { useAppContext } from "../../../Context";
 
-export const SignInEmailInput = () => {
-  const { emailInputRef, loginData, handleChange, page } = useContext(StateContext);
+export const SignInEmailInput = ({ id }) => {
+  const { emailInputRef, loginData, handleChange, page } = useAppContext();
 
   const toggleButton = () => {
     const loginButton = document.querySelector("#login-next-button");
@@ -12,7 +12,9 @@ export const SignInEmailInput = () => {
 
   useEffect(() => {
     const loginButton = document.querySelector("#login-next-button");
-    if (page === 1 && !emailInputRef.current.value) loginButton.disabled = true;
+    if (loginButton) {
+      if (page === 1 && !emailInputRef.current.value) loginButton.disabled = true;
+    }
     if (page === 2) {
       emailInputRef.current.disabled = true;
       emailInputRef.current.style.color = "rgb(110, 118, 125)";
@@ -22,7 +24,7 @@ export const SignInEmailInput = () => {
   }, []);
 
   return (
-    <div id="signup-email-input-container" className="signup-input-container">
+    <div id={id} className="signup-input-container">
       <input
         id="signInEmail"
         className="form-input"

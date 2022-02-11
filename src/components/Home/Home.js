@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { StateContext } from "../../App";
+import { useAppContext } from "../../Context";
 
 const Home = () => {
-  const { isLoggedIn, currentUser } = useContext(StateContext);
+  const { currentUser, handleLogout } = useAppContext();
 
   return (
     <div>
       <div>{currentUser && `email: ${currentUser.email}`}</div>
+      <button onClick={handleLogout}>Log out</button>
     </div>
   );
 };

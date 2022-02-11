@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const SignInPasswordInput = () => {
-  const { loginData, error, handleChange } = useContext(StateContext);
+  const { loginData, error, handleChange } = useAppContext();
 
   const toggleBorderColor = (e) => {
     error ? e.target.classList.add("invalidInputBorder") : e.target.classList.remove("invalidInputBorder");
@@ -18,7 +17,7 @@ export const SignInPasswordInput = () => {
           name="signInPassword"
           placeholder="Password"
           onChange={handleChange}
-          value={loginData.password}
+          value={loginData.signInPassword}
           onInvalid={(e) => toggleBorderColor(e)}
           required
         />

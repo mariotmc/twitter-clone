@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
-export const SignUpCTA = () => {
-  const { redirectUser, setPage, setLoginData } = useContext(StateContext);
+export const SignUpCTA = ({ id }) => {
+  const { redirectUser, setPage, setLoginData } = useAppContext();
 
   return (
-    <p id="signup-text">
+    <p id={id} className="signup-text">
       Don't have an account?{" "}
       <span
         onClick={() => {

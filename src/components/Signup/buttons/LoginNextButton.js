@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const LoginNextButton = () => {
-  const { setPage } = useContext(StateContext);
+  const { setPage } = useAppContext();
 
   const nextPage = () => {
     setPage((currentPage) => currentPage + 1);

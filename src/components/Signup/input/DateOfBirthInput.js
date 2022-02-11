@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const DateOfBirthInput = () => {
-  const { formData } = useContext(StateContext);
+  const { formData } = useAppContext();
 
   return (
     <div className="signup-input-container">

@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const PasswordInput = () => {
-  const { password, error, handleChange } = useContext(StateContext);
+  const { password, error, handleChange } = useAppContext();
 
   const toggleBorderColor = (e) => {
     error ? e.target.classList.add("invalidInputBorder") : e.target.classList.remove("invalidInputBorder");

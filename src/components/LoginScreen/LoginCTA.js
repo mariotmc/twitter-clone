@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import { StateContext } from "../../App";
 import { TwitterIcon } from "./utility/TwitterIcon";
 import { GoogleButton } from "./buttons/GoogleButton";
 import { AppleButton } from "./buttons/AppleButton";
 import { EmailSignupButton } from "./buttons/EmailSignupButton";
 import { Linebreak } from "./utility/Linebreak";
 import { TermsOfServiceText } from "./utility/TermsOfServiceText";
+import { useAppContext } from "../../Context";
 
 const LoginCTA = () => {
-  const { redirectUser } = useContext(StateContext);
+  const { redirectUser } = useAppContext();
 
   return (
     <div id="login-cta">

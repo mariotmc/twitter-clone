@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const EmailSignupButton = () => {
-  const { setShowSignupModal } = useContext(StateContext);
+  const { setShowSignupModal } = useAppContext();
 
   return (
     <>

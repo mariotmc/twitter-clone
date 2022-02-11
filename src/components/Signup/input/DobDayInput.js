@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 import { ArrowDownSymbol } from "../symbols/ArrowDownSymbol";
 
 export const DobDayInput = () => {
-  const { formData, handleChange } = useContext(StateContext);
+  const { formData, handleChange } = useAppContext();
 
   return (
     <div id="dob-day">

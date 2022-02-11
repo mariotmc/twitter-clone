@@ -1,5 +1,4 @@
-import { useEffect, useContext } from "react";
-import { StateContext } from "../../../App";
+import { useEffect } from "react";
 import { ModalPrimaryHead } from "../utility/ModalPrimaryHead";
 import { FormNameInput } from "../input/FormNameInput";
 import { FormEmailInput } from "../input/FormEmailInput";
@@ -9,13 +8,12 @@ import { DobMonthInput } from "../input/DobMonthInput";
 import { DobDayInput } from "../input/DobDayInput";
 import { DobYearInput } from "../input/DobYearInput";
 import { FormNextButton } from "../buttons/FormNextButton";
+import { useAppContext } from "../../../Context";
 
 const SignupFirstPage = () => {
-  const { formData } = useContext(StateContext);
+  const { formData } = useAppContext();
 
   useEffect(() => {
-    // iterates through the formData object and disables the button if any input is empty & enables it if all inputs are not empty
-    // this is triggered every time formData changes
     const signupButton = document.querySelector("#signup-next-button");
     Object.values(formData).some((input) =>
       input === "" ? (signupButton.disabled = true) : (signupButton.disabled = false)

@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const CloseSymbol = (props) => {
-  const { setShowSignupModal } = useContext(StateContext);
+  const { setShowSignupModal } = useAppContext();
 
   return (
     <div className="close-symbol-wrapper">

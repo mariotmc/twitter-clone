@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { StateContext } from "../../../App";
+import { useAppContext } from "../../../Context";
 
 export const FormEmailInput = () => {
-  const { formData, handleChange } = useContext(StateContext);
+  const { formData, handleChange } = useAppContext();
 
   return (
     <div id="signup-email-input-container" className="signup-input-container">
