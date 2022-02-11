@@ -336,13 +336,13 @@
   }
 }
 
-#signup-form-button-container {
+.signup-form-button-container {
   display: flex;
   justify-content: center;
   padding: rem(12) rem(32) rem(36);
   margin-top: auto;
 
-  #signup-form-button {
+  .signup-form-button {
     width: 100%;
     height: rem(44);
     margin: 0 auto;
@@ -357,13 +357,18 @@
     display: none;
   }
 
+  #login-second-page-heading {
+    margin: rem(16) rem(32);
+    font-family: var(--font-body);
+    font-size: rem(23);
+  }
+
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: rem(300);
     margin: 0 auto;
-    padding: 0 0 rem(48);
 
     h3 {
       margin-top: rem(25);
@@ -373,26 +378,31 @@
       font-size: rem(23);
     }
 
-    #signup-email-input-container {
+    #login-first-page-email {
       width: rem(300);
+    }
+
+    #login-second-page-email {
+      margin: rem(30) 0 rem(15);
     }
 
     #google-signup-button {
       margin-bottom: rem(23);
     }
-
-    #signup-next-button-container {
-      padding: 0;
-    }
-
-    #signup-next-button {
-      width: rem(300);
-      height: rem(36);
-      padding: 0;
-    }
+  }
+  #login-next-button-container {
+    padding: 0;
+    margin: 0 auto;
   }
 
-  #signup-text {
+  #login-next-button {
+    width: rem(300);
+    height: rem(36);
+    padding: 0;
+    font-weight: 700;
+  }
+
+  .signup-text {
     margin: auto;
     font-size: rem(15);
     color: rgb(110, 118, 125);
@@ -404,6 +414,23 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+  }
+
+  #login-second-page-cta {
+    margin: 0 auto;
+    padding-bottom: rem(40);
+  }
+
+  #login-second-page-forgot-password {
+    width: rem(520);
+    margin-top: rem(-20);
+    font-size: rem(13);
+    color: var(--light-blue);
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
