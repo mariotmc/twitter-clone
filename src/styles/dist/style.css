@@ -577,13 +577,13 @@ a:active {
   text-decoration: underline;
 }
 
-#signup-form-button-container {
+.signup-form-button-container {
   display: flex;
   justify-content: center;
   padding: 0.75rem 2rem 2.25rem;
   margin-top: auto;
 }
-#signup-form-button-container #signup-form-button {
+.signup-form-button-container .signup-form-button {
   width: 100%;
   height: 2.75rem;
   margin: 0 auto;
@@ -595,13 +595,17 @@ a:active {
 #login-modal-container .close-symbol-wrapper {
   display: none;
 }
+#login-modal-container #login-second-page-heading {
+  margin: 1rem 2rem;
+  font-family: var(--font-body);
+  font-size: 1.4375rem;
+}
 #login-modal-container form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 18.75rem;
   margin: 0 auto;
-  padding: 0 0 3rem;
 }
 #login-modal-container form h3 {
   margin-top: 1.5625rem;
@@ -610,30 +614,49 @@ a:active {
   font-family: var(--font-body);
   font-size: 1.4375rem;
 }
-#login-modal-container form #signup-email-input-container {
+#login-modal-container form #login-first-page-email {
   width: 18.75rem;
+}
+#login-modal-container form #login-second-page-email {
+  margin: 1.875rem 0 0.9375rem;
 }
 #login-modal-container form #google-signup-button {
   margin-bottom: 1.4375rem;
 }
-#login-modal-container form #signup-next-button-container {
+#login-modal-container #login-next-button-container {
   padding: 0;
+  margin: 0 auto;
 }
-#login-modal-container form #signup-next-button {
+#login-modal-container #login-next-button {
   width: 18.75rem;
   height: 2.25rem;
   padding: 0;
+  font-weight: 700;
 }
-#login-modal-container #signup-text {
+#login-modal-container .signup-text {
   margin: auto;
   font-size: 0.9375rem;
   color: #6e767d;
 }
-#login-modal-container #signup-text span {
+#login-modal-container .signup-text span {
   color: var(--light-blue);
   cursor: pointer;
 }
-#login-modal-container #signup-text span:hover {
+#login-modal-container .signup-text span:hover {
+  text-decoration: underline;
+}
+#login-modal-container #login-second-page-cta {
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+}
+#login-modal-container #login-second-page-forgot-password {
+  width: 32.5rem;
+  margin-top: -1.25rem;
+  font-size: 0.8125rem;
+  color: var(--light-blue);
+  cursor: pointer;
+}
+#login-modal-container #login-second-page-forgot-password:hover {
   text-decoration: underline;
 }
 
