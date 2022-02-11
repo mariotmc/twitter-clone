@@ -1,21 +1,12 @@
-import { useEffect, useContext } from "react";
-import { StateContext } from "../../../App";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { useAppContext } from "../../../Context";
 
 export const FormSignupButton = () => {
-  const { handleSignUp, loading, setCurrentUser } = useContext(StateContext);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUser(user));
-    return unsubscribe;
-  }, []);
+  const { handleSignUp, loading } = useAppContext();
 
   return (
-    <div id="signup-form-button-container">
+    <div className="signup-form-button-container">
       <button
-        id="signup-form-button"
-        className="button"
+        className="button signup-form-button"
         type="submit"
         form="signup-form-third-page"
         disabled={loading}
