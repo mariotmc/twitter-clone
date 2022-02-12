@@ -1,7 +1,7 @@
 import { useAppContext } from "../../../Context";
 
 export const ForgotPassword = ({ id, className }) => {
-  const { redirectUser, setPage } = useAppContext();
+  const { redirectUser, setPage, loginData, setLoginData } = useAppContext();
 
   return (
     <small
@@ -9,6 +9,9 @@ export const ForgotPassword = ({ id, className }) => {
       className={className}
       onClick={() => {
         redirectUser("password-reset");
+        setLoginData((prevState) => {
+          return { ...prevState, signInPassword: "" };
+        });
         setPage(1);
       }}
     >
