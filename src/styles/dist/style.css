@@ -670,4 +670,18 @@ a:active {
   color: #f4212e;
   border-color: #f4212e;
   background-color: #f4212e;
+}
+
+#password-reset-page-login {
+  font-size: 0.9375rem;
+  color: #1d9bf0;
+  margin-top: auto;
+  cursor: pointer;
+}
+#password-reset-page-login:hover {
+  text-decoration: underline;
+}
+
+#password-reset-close {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
