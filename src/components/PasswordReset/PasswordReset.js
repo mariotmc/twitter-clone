@@ -3,12 +3,12 @@ import { ModalPrimaryHead } from "../Signup/utility/ModalPrimaryHead";
 import { SignInEmailInput } from "../Signup/input/SignInEmailInput";
 
 const PasswordReset = () => {
-  const { loginData, message, handleResetPassword } = useAppContext();
+  const { loginData, message, handleResetPassword, redirectUser, setMessage } = useAppContext();
 
   return (
     <div className="modal-container">
       <div className="modal">
-        <ModalPrimaryHead />
+        <ModalPrimaryHead id="password-reset-close" />
         <div
           style={{
             width: "536px",
@@ -31,10 +31,22 @@ const PasswordReset = () => {
             Reset your password
           </h3>
           <SignInEmailInput />
-          {message && <p>{message}</p>}
+
+          {message && <p style={{ margin: 0, color: "rgb(136, 153, 166)", fontSize: "15px" }}>{message}</p>}
+
+          <span
+            id="password-reset-page-login"
+            onClick={() => {
+              redirectUser("login");
+              setMessage("");
+            }}
+          >
+            Log in
+          </span>
+
           <button
             className="button"
-            style={{ width: "100%", height: "44px", margin: "auto 0 36px", fontWeight: "700" }}
+            style={{ width: "100%", height: "44px", margin: "30px 0 36px", fontWeight: "700" }}
             onClick={() => handleResetPassword(loginData.signInEmail)}
           >
             Reset
