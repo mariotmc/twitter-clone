@@ -1,11 +1,12 @@
+import { useEffect } from "react";
 import { useAppContext } from "../../../Context";
 
 export const SignInPasswordInput = () => {
-  const { loginData, error, handleChange } = useAppContext();
+  const { loginData, error, handleChange, loginPasswordRef, setInvalidBorderColor } = useAppContext();
 
-  const toggleBorderColor = (e) => {
-    error ? e.target.classList.add("invalidInputBorder") : e.target.classList.remove("invalidInputBorder");
-  };
+  useEffect(() => {
+    if (error && error === "Failed to sign in") setInvalidBorderColor(loginPasswordRef);
+  }, [error]);
 
   return (
     <>
@@ -18,7 +19,7 @@ export const SignInPasswordInput = () => {
           placeholder="Password"
           onChange={handleChange}
           value={loginData.signInPassword}
-          onInvalid={(e) => toggleBorderColor(e)}
+          ref={loginPasswordRef}
           required
         />
         <label className="form-label" htmlFor="signInPassword">
