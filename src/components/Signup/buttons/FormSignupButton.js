@@ -5,13 +5,7 @@ export const FormSignupButton = () => {
 
   return (
     <div className="signup-form-button-container">
-      <button
-        className="button signup-form-button"
-        type="submit"
-        form="signup-form-third-page"
-        disabled={loading}
-        onClick={(e) => handleSignUp(e)}
-      >
+      <button className="button signup-form-button" disabled={loading} onClick={(e) => handleSignUp(e)}>
         Sign up
       </button>
     </div>
