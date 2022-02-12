@@ -5,7 +5,7 @@ import {
   onAuthStateChanged,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth, createUser, fetchUsers } from "./firebase";
 import { useNavigate } from "react-router-dom";
 
 const AppContext = createContext();
@@ -14,13 +14,19 @@ export const useAppContext = () => {
   return useContext(AppContext);
 };
 
-// mariotomicx@gmail.com
-// TestPassword123!
-
 export const ContextProvider = ({ children }) => {
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [page, setPage] = useState(1);
-  const [formData, setFormData] = useState({ name: "", email: "", month: "", day: "", year: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    month: "",
+    day: "",
+    year: "",
+    emailNotifications: false,
+    emailAccess: false,
+    personalizedAds: false,
+  });
   const [loginData, setLoginData] = useState({ signInEmail: "", signInPassword: "" });
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -28,25 +34,33 @@ export const ContextProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const emailInputRef = useRef();
+  const signupEmailRef = useRef();
+  const signupPasswordRef = useRef();
+  const signupPasswordConfirmationRef = useRef();
+  const signupNextButton = useRef();
+  const loginEmailRef = useRef();
+  const loginPasswordRef = useRef();
+  const loginNextButton = useRef();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    if (e.target.name === "password") {
-      setPassword(e.target.value);
-    } else if (e.target.name === "passwordConfirmation") {
-      setPasswordConfirmation(e.target.value);
-    } else if (e.target.name === "signInEmail") {
+    const { name, value, type, checked } = e.target;
+
+    if (name === "password") {
+      setPassword(value);
+    } else if (name === "passwordConfirmation") {
+      setPasswordConfirmation(value);
+    } else if (name === "signInEmail") {
       setLoginData((prevState) => {
-        return { ...prevState, [e.target.name]: e.target.value };
+        return { ...prevState, [name]: value };
       });
-    } else if (e.target.name === "signInPassword") {
+    } else if (name === "signInPassword") {
       setLoginData((prevState) => {
-        return { ...prevState, [e.target.name]: e.target.value };
+        return { ...prevState, [name]: value };
       });
     } else {
       setFormData((prevState) => {
-        return { ...prevState, [e.target.name]: e.target.value };
+        return { ...prevState, [name]: type === "checkbox" ? checked : value };
       });
     }
   };
@@ -78,7 +92,9 @@ export const ContextProvider = ({ children }) => {
     try {
       setError("");
       setLoading(true);
-      await signUp(formData.email, password);
+      const { name, email, day, month, year } = formData;
+      await signUp(email, password);
+      createUser(name, email, day, month, year);
       await redirectUser("");
     } catch (error) {
       console.error(error);
@@ -133,12 +149,36 @@ export const ContextProvider = ({ children }) => {
     try {
       setMessage("");
       setError("");
-      setLoading(true);
       await resetPassword(email);
       setMessage("Check your inbox for further instructions");
     } catch (error) {
       setError("Failed to reset password");
     }
+  };
+
+  const setInvalidBorderColor = (element) => {
+    element.current.parentElement.style.borderColor = "rgb(244, 33, 46)";
+  };
+
+  const nextPage = (email) => {
+    setError("");
+    if (page === 1) {
+      !checkIfEmailExists(email)
+        ? setPage((currentPage) => currentPage + 1)
+        : console.log("Email already exists");
+    }
+    if (page === 2) setPage((currentPage) => currentPage + 1);
+  };
+
+  const checkIfEmailExists = (email) => {
+    const allUsers = fetchUsers();
+    const emails = allUsers.map((user) => {
+      return user.email;
+    });
+
+    console.log(emails);
+
+    // return emails.includes(email);
   };
 
   const redirectUser = async (path) => {
@@ -154,7 +194,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => setCurrentUser(user));
+    const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUser(user));
     return unsubscribe;
   }, []);
 
@@ -179,7 +219,13 @@ export const ContextProvider = ({ children }) => {
     setMessage,
     loading,
     setLoading,
-    emailInputRef,
+    signupEmailRef,
+    signupPasswordRef,
+    signupPasswordConfirmationRef,
+    signupNextButton,
+    loginEmailRef,
+    loginPasswordRef,
+    loginNextButton,
     navigate,
     handleChange,
     signUp,
@@ -190,6 +236,8 @@ export const ContextProvider = ({ children }) => {
     handleLogout,
     resetPassword,
     handleResetPassword,
+    setInvalidBorderColor,
+    nextPage,
     redirectUser,
     navigateToNextPage,
     navigateToPreviousPage,
