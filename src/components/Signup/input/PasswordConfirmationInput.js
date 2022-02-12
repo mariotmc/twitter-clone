@@ -1,11 +1,7 @@
 import { useAppContext } from "../../../Context";
 
 export const PasswordConfirmationInput = () => {
-  const { passwordConfirmation, error, handleChange } = useAppContext();
-
-  const toggleBorderColor = (e) => {
-    error ? e.target.classList.add("invalidInputBorder") : e.target.classList.remove("invalidInputBorder");
-  };
+  const { passwordConfirmation, signupPasswordConfirmationRef, error, handleChange } = useAppContext();
 
   return (
     <>
@@ -16,9 +12,9 @@ export const PasswordConfirmationInput = () => {
           type="password"
           name="passwordConfirmation"
           placeholder="Password Confirmation"
+          ref={signupPasswordConfirmationRef}
           onChange={handleChange}
           value={passwordConfirmation}
-          onInvalid={(e) => toggleBorderColor(e)}
           required
         />
         <label className="form-label" htmlFor="password-confirmation">

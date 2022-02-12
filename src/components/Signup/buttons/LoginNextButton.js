@@ -1,15 +1,11 @@
 import { useAppContext } from "../../../Context";
 
 export const LoginNextButton = () => {
-  const { setPage } = useAppContext();
-
-  const nextPage = () => {
-    setPage((currentPage) => currentPage + 1);
-  };
+  const { loginNextButton } = useAppContext();
 
   return (
     <div id="login-next-button-container">
-      <button id="login-next-button" className="button" onClick={nextPage}>
+      <button id="login-next-button" className="button" ref={loginNextButton}>
         Next
       </button>
     </div>

@@ -1,7 +1,7 @@
 import { useAppContext } from "../../../Context";
 
 export const FormEmailInput = () => {
-  const { formData, handleChange } = useAppContext();
+  const { formData, handleChange, setInvalidBorderColor, signupEmailRef } = useAppContext();
 
   return (
     <div id="signup-email-input-container" className="signup-input-container">
@@ -12,7 +12,9 @@ export const FormEmailInput = () => {
         name="email"
         placeholder="Email"
         required
+        ref={signupEmailRef}
         onChange={handleChange}
+        onInvalid={() => setInvalidBorderColor(signupEmailRef)}
         value={formData.email}
       />
       <label className="form-label" htmlFor="email">
