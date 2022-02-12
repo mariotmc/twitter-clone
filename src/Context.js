@@ -5,7 +5,7 @@ import {
   onAuthStateChanged,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth, createUser, fetchUsers } from "./firebase";
+import { auth, createUser, fetchUsers, fetchEmails } from "./firebase";
 import { useNavigate } from "react-router-dom";
 
 const AppContext = createContext();
@@ -160,25 +160,27 @@ export const ContextProvider = ({ children }) => {
     element.current.parentElement.style.borderColor = "rgb(244, 33, 46)";
   };
 
-  const nextPage = (email) => {
-    setError("");
-    if (page === 1) {
-      !checkIfEmailExists(email)
-        ? setPage((currentPage) => currentPage + 1)
-        : console.log("Email already exists");
-    }
-    if (page === 2) setPage((currentPage) => currentPage + 1);
-  };
+  const nextPage =
+    (e) =>
+    async (email = null) => {
+      e.preventDefault();
+      setError("");
+      const exists = await checkIfEmailExists(email);
+      // need something to check if it's signup or login page (maybe additional input in nextPage?)
+      // if login page then the below code is valid, if signup then just the opposite logic
+      // need to add error message + border color change when invalid input
+      if (page === 1) {
+        !exists ? console.log("Email already exists") : setPage((currentPage) => currentPage + 1);
+      }
+      if (page === 2) setPage((currentPage) => currentPage + 1);
+    };
 
-  const checkIfEmailExists = (email) => {
-    const allUsers = fetchUsers();
-    const emails = allUsers.map((user) => {
-      return user.email;
-    });
+  const checkIfEmailExists = async (email) => {
+    const emails = await fetchEmails();
 
-    console.log(emails);
+    if (JSON.stringify(emails).includes(JSON.stringify(email))) return true;
 
-    // return emails.includes(email);
+    return false;
   };
 
   const redirectUser = async (path) => {

@@ -29,6 +29,23 @@ export const fetchUsers = () => {
   return users;
 };
 
+export const fetchEmails = async () => {
+  let users = [];
+  let emails = [];
+
+  await getDocs(usersCollection)
+    .then((snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        users.push({ ...doc.data() });
+      });
+    })
+    .catch((err) => console.log(err.message));
+
+  users.map((user) => emails.push(user.email));
+
+  return emails;
+};
+
 export const createUser = (name, email, dobDay, dobMonth, dobYear) => {
   // name, email, dob, picture, theme preferences
   return addDoc(usersCollection, { name, email, dob: `${dobDay}.${dobMonth}.${dobYear}` });
