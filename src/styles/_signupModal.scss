@@ -446,3 +446,18 @@
   border-color: rgb(244, 33, 46);
   background-color: rgb(244, 33, 46);
 }
+
+#password-reset-page-login {
+  font-size: rem(15);
+  color: rgb(29, 155, 240);
+  margin-top: auto;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#password-reset-close {
+  cursor: pointer;
+}
