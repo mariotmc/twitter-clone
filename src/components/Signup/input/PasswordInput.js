@@ -1,11 +1,7 @@
 import { useAppContext } from "../../../Context";
 
 export const PasswordInput = () => {
-  const { password, error, handleChange } = useAppContext();
-
-  const toggleBorderColor = (e) => {
-    error ? e.target.classList.add("invalidInputBorder") : e.target.classList.remove("invalidInputBorder");
-  };
+  const { password, signupPasswordRef, error, handleChange } = useAppContext();
 
   return (
     <>
@@ -16,9 +12,9 @@ export const PasswordInput = () => {
           type="password"
           name="password"
           placeholder="Password"
+          ref={signupPasswordRef}
           onChange={handleChange}
           value={password}
-          onInvalid={(e) => toggleBorderColor(e)}
           required
         />
         <label className="form-label" htmlFor="password">
