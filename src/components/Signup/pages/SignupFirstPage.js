@@ -26,7 +26,7 @@ const SignupFirstPage = () => {
 
       <h3 id="signup-first-page-heading">Create your account</h3>
 
-      <form className="signup-form" onSubmit={() => nextPage(formData.email)}>
+      <form className="signup-form" onSubmit={(e) => nextPage(e)(formData.email)}>
         <FormNameInput />
 
         <FormEmailInput />
