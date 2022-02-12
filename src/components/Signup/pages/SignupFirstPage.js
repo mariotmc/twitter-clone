@@ -11,7 +11,7 @@ import { FormNextButton } from "../buttons/FormNextButton";
 import { useAppContext } from "../../../Context";
 
 const SignupFirstPage = () => {
-  const { formData } = useAppContext();
+  const { formData, nextPage } = useAppContext();
 
   useEffect(() => {
     const signupButton = document.querySelector("#signup-next-button");
@@ -22,11 +22,11 @@ const SignupFirstPage = () => {
 
   return (
     <>
-      <ModalPrimaryHead />
+      <ModalPrimaryHead id="signup-close-symbol" />
 
       <h3 id="signup-first-page-heading">Create your account</h3>
 
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={() => nextPage(formData.email)}>
         <FormNameInput />
 
         <FormEmailInput />
@@ -40,9 +40,9 @@ const SignupFirstPage = () => {
           <DobDayInput />
           <DobYearInput />
         </div>
-      </form>
 
-      <FormNextButton />
+        <FormNextButton />
+      </form>
     </>
   );
 };
