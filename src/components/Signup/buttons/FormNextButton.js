@@ -1,15 +1,11 @@
 import { useAppContext } from "../../../Context";
 
 export const FormNextButton = () => {
-  const { setPage } = useAppContext();
-
-  const nextPage = () => {
-    setPage((currentPage) => currentPage + 1);
-  };
+  const { signupNextButton } = useAppContext();
 
   return (
     <div id="signup-next-button-container">
-      <button id="signup-next-button" className="button" onClick={nextPage}>
+      <button id="signup-next-button" className="button" ref={signupNextButton}>
         Next
       </button>
     </div>
