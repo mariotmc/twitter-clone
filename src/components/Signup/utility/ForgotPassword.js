@@ -1,7 +1,7 @@
 import { useAppContext } from "../../../Context";
 
 export const ForgotPassword = ({ id, className }) => {
-  const { redirectUser, setPage, loginData, setLoginData } = useAppContext();
+  const { redirectUser, setPage, setLoginData } = useAppContext();
 
   return (
     <small
