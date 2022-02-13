@@ -17,7 +17,7 @@ const LoginCTA = () => {
 
       <h2 id="login-secondary-heading">Join Twitter today.</h2>
 
-      <GoogleButton id="google-icon" class="button signup-button" text="up" />
+      <GoogleButton id="google-icon" className="button signup-button" text="up" />
 
       <AppleButton id="apple-icon" class="button signup-button" text="up" />
 
