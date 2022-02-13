@@ -2,18 +2,18 @@ import { useEffect } from "react";
 import { useAppContext } from "../../../Context";
 
 export const SignInEmailInput = ({ id }) => {
-  const { loginEmailRef, loginNextButton, loginData, handleChange, page, setInvalidBorderColor } =
+  const { loginEmailRef, loginNextButton, loginData, handleChange, page, setInvalidBorderColor, error } =
     useAppContext();
 
   const toggleButton = () => {
-    if (loginEmailRef && loginNextButton)
+    if (loginEmailRef.current && loginNextButton.current)
       !loginEmailRef.current.value
         ? (loginNextButton.current.disabled = true)
         : (loginNextButton.current.disabled = false);
   };
 
   useEffect(() => {
-    if (loginEmailRef && loginNextButton) {
+    if (loginEmailRef.current && loginNextButton.current) {
       if (page === 1 && !loginEmailRef.current.value) loginNextButton.current.disabled = true;
       if (page === 2) {
         loginEmailRef.current.disabled = true;
@@ -46,6 +46,11 @@ export const SignInEmailInput = ({ id }) => {
           Email
         </label>
       </div>
+      {error && error === "Sorry, we could not find your account." && (
+        <p className="signup-error-message" style={{ alignSelf: "flex-start" }}>
+          {error}
+        </p>
+      )}
     </>
   );
 };
