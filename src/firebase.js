@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 
 const app = initializeApp({
@@ -12,6 +12,7 @@ const app = initializeApp({
 });
 
 export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 const usersCollection = collection(db, "users");
 
@@ -47,6 +48,5 @@ export const fetchEmails = async () => {
 };
 
 export const createUser = (name, email, dobDay, dobMonth, dobYear) => {
-  // name, email, dob, picture, theme preferences
   return addDoc(usersCollection, { name, email, dob: `${dobDay}.${dobMonth}.${dobYear}` });
 };
