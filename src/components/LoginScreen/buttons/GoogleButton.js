@@ -1,7 +1,11 @@
-export const GoogleButton = (props) => {
+import { useAppContext } from "../../../Context";
+
+export const GoogleButton = ({ className, id, text }) => {
+  const { handleGoogleSignIn } = useAppContext();
+
   return (
-    <button className={props.class} id="google-signup-button">
-      <svg id={props.id} viewBox="0 0 48 48">
+    <button className={className} id="google-signup-button" onClick={handleGoogleSignIn}>
+      <svg id={id} viewBox="0 0 48 48">
         <path
           fill="#EA4335"
           d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
@@ -20,7 +24,7 @@ export const GoogleButton = (props) => {
         ></path>
         <path fill="none" d="M0 0h48v48H0z"></path>
       </svg>
-      <span>Sign {props.text} with Google</span>
+      <span>Sign {text} with Google</span>
     </button>
   );
 };
