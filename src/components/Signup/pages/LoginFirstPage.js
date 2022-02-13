@@ -14,10 +14,10 @@ export const LoginFirstPage = () => {
     <div id="login-modal-container" className="modal-container">
       <div id="login-modal" className="modal">
         <ModalPrimaryHead />
-        <form id="login-first-page-form" onSubmit={(e) => nextPage(e)(loginData.signInEmail)}>
+        <form id="login-first-page-form" onSubmit={(e) => nextPage(e)("login", loginData.signInEmail)}>
           <h3>Sign in to Twitter</h3>
 
-          <GoogleButton id="google-icon" class="button signup-button" text="in" />
+          <GoogleButton id="google-icon" className="button signup-button" text="in" />
 
           <AppleButton id="apple-icon" class="button signup-button" text="in" />
 

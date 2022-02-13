@@ -19,7 +19,7 @@ const SignupSecondPage = () => {
       <div id="signup-second-page-container">
         <h3 id="signup-second-page-heading">Customize your experience</h3>
 
-        <form onSubmit={(e) => nextPage(e)()}>
+        <form onSubmit={(e) => nextPage(e)("signup")}>
           <h4>Get more out of Twitter</h4>
           <div className="signup-second-page-input-container">
             <label className="signup-second-page-text" htmlFor="email-notifications">
