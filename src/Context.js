@@ -2,10 +2,12 @@ import { createContext, useContext, useState, useRef, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
   onAuthStateChanged,
   sendPasswordResetEmail,
+  signOut,
 } from "firebase/auth";
-import { auth, createUser, fetchUsers, fetchEmails } from "./firebase";
+import { auth, googleProvider, createUser, fetchEmails } from "./firebase";
 import { useNavigate } from "react-router-dom";
 
 const AppContext = createContext();
@@ -94,7 +96,7 @@ export const ContextProvider = ({ children }) => {
       setLoading(true);
       const { name, email, day, month, year } = formData;
       await signUp(email, password);
-      createUser(name, email, day, month, year);
+      await createUser(name, email, day, month, year);
       await redirectUser("");
     } catch (error) {
       console.error(error);
@@ -120,14 +122,15 @@ export const ContextProvider = ({ children }) => {
       setPage(1);
     } catch (error) {
       console.error(error);
-      setError("Failed to sign in");
+      setError("Wrong password!");
+      setInvalidBorderColor(loginPasswordRef);
     }
 
     setLoading(false);
   };
 
   const logout = () => {
-    return auth.signOut();
+    return signOut(auth);
   };
 
   const handleLogout = async () => {
@@ -138,6 +141,21 @@ export const ContextProvider = ({ children }) => {
       redirectUser("login");
     } catch (error) {
       setError("Failed to log out");
+    }
+  };
+
+  const signInWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      setError("");
+      await signInWithGoogle();
+      await redirectUser("");
+    } catch (error) {
+      console.error(error);
+      setError("Failed to sign in");
     }
   };
 
@@ -162,15 +180,29 @@ export const ContextProvider = ({ children }) => {
 
   const nextPage =
     (e) =>
-    async (email = null) => {
+    async (pageContext, email = null) => {
       e.preventDefault();
       setError("");
       const exists = await checkIfEmailExists(email);
-      // need something to check if it's signup or login page (maybe additional input in nextPage?)
-      // if login page then the below code is valid, if signup then just the opposite logic
       // need to add error message + border color change when invalid input
       if (page === 1) {
-        !exists ? console.log("Email already exists") : setPage((currentPage) => currentPage + 1);
+        if (pageContext === "login") {
+          if (!exists) {
+            setError("Sorry, we could not find your account.");
+            setInvalidBorderColor(loginEmailRef);
+          } else {
+            setError("");
+            setPage((currentPage) => currentPage + 1);
+          }
+        } else if (pageContext === "signup") {
+          if (exists) {
+            setError("Email is already taken");
+            setInvalidBorderColor(signupEmailRef);
+          } else {
+            setError("");
+            setPage((currentPage) => currentPage + 1);
+          }
+        }
       }
       if (page === 2) setPage((currentPage) => currentPage + 1);
     };
@@ -178,9 +210,7 @@ export const ContextProvider = ({ children }) => {
   const checkIfEmailExists = async (email) => {
     const emails = await fetchEmails();
 
-    if (JSON.stringify(emails).includes(JSON.stringify(email))) return true;
-
-    return false;
+    return JSON.stringify(emails).includes(JSON.stringify(email)) ? true : false;
   };
 
   const redirectUser = async (path) => {
@@ -236,6 +266,8 @@ export const ContextProvider = ({ children }) => {
     handleLogin,
     logout,
     handleLogout,
+    signInWithGoogle,
+    handleGoogleSignIn,
     resetPassword,
     handleResetPassword,
     setInvalidBorderColor,
