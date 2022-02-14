@@ -4,7 +4,7 @@ export const GoogleButton = ({ className, id, text }) => {
   const { handleGoogleSignIn } = useAppContext();
 
   return (
-    <button className={className} id="google-signup-button" onClick={handleGoogleSignIn}>
+    <button className={className} id="google-signup-button" type="button" onClick={handleGoogleSignIn}>
       <svg id={id} viewBox="0 0 48 48">
         <path
           fill="#EA4335"
