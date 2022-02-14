@@ -97,6 +97,7 @@ export const ContextProvider = ({ children }) => {
       const { name, email, day, month, year } = formData;
       await signUp(email, password);
       await createUser(name, email, day, month, year);
+      localStorage.setItem("user", JSON.stringify(currentUser));
       await redirectUser("");
     } catch (error) {
       console.error(error);
@@ -117,6 +118,7 @@ export const ContextProvider = ({ children }) => {
       setError("");
       setLoading(true);
       await login(loginData.signInEmail, loginData.signInPassword);
+      localStorage.setItem("user", JSON.stringify(currentUser));
       await redirectUser("");
       setLoginData({ signInEmail: "", signInPassword: "" });
       setPage(1);
@@ -138,6 +140,7 @@ export const ContextProvider = ({ children }) => {
 
     try {
       await logout();
+      localStorage.removeItem("user");
       redirectUser("login");
     } catch (error) {
       setError("Failed to log out");
@@ -152,6 +155,7 @@ export const ContextProvider = ({ children }) => {
     try {
       setError("");
       await signInWithGoogle();
+      localStorage.setItem("user", JSON.stringify(auth.currentUser));
       await redirectUser("");
     } catch (error) {
       console.error(error);
