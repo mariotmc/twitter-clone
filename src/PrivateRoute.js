@@ -1,8 +1,7 @@
 import { Navigate } from "react-router-dom";
-import { auth } from "./firebase";
 
 const PrivateRoute = ({ children }) => {
-  return auth.currentUser !== undefined ? children : <Navigate to="/twitter-clone/login" />;
+  return !localStorage.user ? <Navigate to="/twitter-clone/login" /> : children;
 };
 
 export default PrivateRoute;
