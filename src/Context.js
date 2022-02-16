@@ -36,6 +36,7 @@ export const ContextProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [content, setContent] = useState("Home");
   const signupEmailRef = useRef();
   const signupPasswordRef = useRef();
   const signupPasswordConfirmationRef = useRef();
@@ -155,7 +156,7 @@ export const ContextProvider = ({ children }) => {
     try {
       setError("");
       await signInWithGoogle();
-      localStorage.setItem("user", JSON.stringify(auth.currentUser));
+      localStorage.setItem("user", JSON.stringify([]));
       await redirectUser("");
     } catch (error) {
       console.error(error);
@@ -255,6 +256,8 @@ export const ContextProvider = ({ children }) => {
     setMessage,
     loading,
     setLoading,
+    content,
+    setContent,
     signupEmailRef,
     signupPasswordRef,
     signupPasswordConfirmationRef,
