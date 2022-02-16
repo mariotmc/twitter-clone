@@ -1,0 +1,8 @@
+@use "functions" as *;
+@use "variables" as *;
+
+.content-container {
+  width: 50%;
+  border-left: rem(1) solid var(--dark-gray);
+  border-right: rem(1) solid var(--dark-gray);
+}
