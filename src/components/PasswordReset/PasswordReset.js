@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { useAppContext } from "../../Context";
 import { ModalPrimaryHead } from "../Signup/utility/ModalPrimaryHead";
 import { SignInEmailInput } from "../Signup/input/SignInEmailInput";
 
 const PasswordReset = () => {
   const { loginData, message, handleResetPassword, redirectUser, setMessage } = useAppContext();
+
+  useEffect(() => {
+    document.title = "Twitter";
+  }, []);
 
   return (
     <div className="modal-container">
