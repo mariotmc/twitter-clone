@@ -684,4 +684,34 @@ a:active {
 
 #password-reset-close {
   cursor: pointer;
+}
+
+#navigation-container .nav-items {
+  width: 15.6875rem;
+  height: 100%;
+  margin-left: auto;
+  padding: 0 0.75rem;
+}
+#navigation-container .nav-item {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#navigation-container .nav-item svg {
+  width: 1.625rem;
+  height: 1.625rem;
+  fill: #fff;
+}
+
+.header-icon {
+  width: 3.125rem;
+  height: 1.875rem;
+  fill: #fff;
+  text-align: left;
+}
+
+.content-container {
+  width: 50%;
+  border-left: 0.0625rem solid var(--dark-gray);
+  border-right: 0.0625rem solid var(--dark-gray);
 }/*# sourceMappingURL=style.css.map */
