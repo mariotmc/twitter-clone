@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [content, setContent] = useState("Home");
+  const [content, setContent] = useState("");
   const signupEmailRef = useRef();
   const signupPasswordRef = useRef();
   const signupPasswordConfirmationRef = useRef();
