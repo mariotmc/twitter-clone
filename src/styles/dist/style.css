@@ -687,31 +687,108 @@ a:active {
 }
 
 #navigation-container .nav-items {
+  position: relative;
   width: 15.6875rem;
   height: 100%;
   margin-left: auto;
-  padding: 0 0.75rem;
+  margin-right: 2.5625rem;
+  padding: 0.8125rem 0.75rem;
 }
-#navigation-container .nav-item {
+#navigation-container .nav-item-container {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  height: 3.625rem;
 }
-#navigation-container .nav-item svg {
+#navigation-container .nav-item-container .nav-item {
+  display: flex;
+  align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 3.125rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  border-radius: 624.9375rem;
+}
+#navigation-container .nav-item-container .nav-item svg {
   width: 1.625rem;
   height: 1.625rem;
+  margin-right: 0.9375rem;
   fill: #fff;
+}
+#navigation-container .nav-item-container .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .header-icon {
   width: 3.125rem;
   height: 1.875rem;
+  margin-left: -0.625rem;
   fill: #fff;
-  text-align: left;
 }
 
 .content-container {
   width: 50%;
   border-left: 0.0625rem solid var(--dark-gray);
   border-right: 0.0625rem solid var(--dark-gray);
+}
+
+.header-search-bar ::-moz-placeholder {
+  color: #8899a6;
+}
+
+.header-search-bar :-ms-input-placeholder {
+  color: #8899a6;
+}
+
+.header-search-bar ::placeholder {
+  color: #8899a6;
+}
+
+.trend-article:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.trends-nav {
+  width: 100%;
+}
+.trends-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0rem;
+  font-size: 0.8125rem;
+}
+.trends-nav li {
+  margin: 0.125rem 0;
+  padding-right: 0.75rem;
+  list-style: none;
+}
+.trends-nav li:hover {
+  text-decoration: underline;
+}
+.trends-nav a,
+.trends-nav li,
+.trends-nav span {
+  color: var(--gray);
+}
+.trends-nav span {
+  margin-left: 10%;
+  font-size: 0.8125rem;
+}
+
+.message-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+}
+.message-icon-container:hover {
+  background-color: rgba(239, 243, 244, 0.1);
 }/*# sourceMappingURL=style.css.map */
