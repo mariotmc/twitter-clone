@@ -9,47 +9,87 @@ import { NavSettingsIcon } from "../../Icons/NavSettingsIcon";
 import { TwitterIcon } from "../../LoginScreen/utility/TwitterIcon";
 
 const Navigation = () => {
-  const { handleLogout } = useAppContext();
+  const { setContent, handleLogout } = useAppContext();
 
   return (
     <div id="navigation-container" style={{ width: "25%" }}>
       <div className="nav-items">
-        <div className="nav-icon-container" style={{ height: "53px" }}>
+        <div className="nav-icon-container" style={{ height: "49px", paddingLeft: "12px" }}>
           <TwitterIcon class="header-icon" />
         </div>
 
-        <div className="nav-item">
-          <NavHomeIcon />
-          <span>Home</span>
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Home")}>
+            <NavHomeIcon />
+            <span>Home</span>
+          </div>
         </div>
-        <div className="nav-item">
-          <NavExploreIcon />
-          <span>Explore</span>
+
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Explore")}>
+            <NavExploreIcon />
+            <span>Explore</span>
+          </div>
         </div>
-        <div className="nav-item">
-          <NavNotificationsIcon />
-          <span>Notifications</span>
+
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Notifications")}>
+            <NavNotificationsIcon />
+            <span>Notifications</span>
+          </div>
         </div>
-        <div className="nav-item">
-          <NavMessagesIcon />
-          <span>Messages</span>
+
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Messages")}>
+            <NavMessagesIcon />
+            <span>Messages</span>
+          </div>
         </div>
-        <div className="nav-item">
-          <NavBookmarksIcon />
-          <span>Bookmarks</span>
+
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Bookmarks")}>
+            <NavBookmarksIcon />
+            <span>Bookmarks</span>
+          </div>
         </div>
-        <div className="nav-item">
-          <NavProfileIcon />
-          <span>Profile</span>
+
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Profile")}>
+            <NavProfileIcon />
+            <span>Profile</span>
+          </div>
         </div>
-        <div className="nav-item">
-          <NavSettingsIcon />
-          <span>Settings</span>
+
+        <div className="nav-item-container">
+          <div className="nav-item" onClick={() => setContent("Settings")}>
+            <NavSettingsIcon />
+            <span>Settings</span>
+          </div>
         </div>
-        <button className="button" style={{ display: "block", width: "226px" }}>
+
+        <button
+          className="button"
+          style={{
+            display: "block",
+            width: "226px",
+            height: "52px",
+            marginTop: "20px",
+            padding: "0px",
+            color: "#fff",
+            backgroundColor: "rgb(29, 155, 240)",
+            fontWeight: "700",
+          }}
+        >
           Tweet
         </button>
-        <button onClick={handleLogout}>Log out</button>
+
+        <button
+          className="button"
+          style={{ width: "226px", position: "absolute", bottom: "25px", fontWeight: "700" }}
+          onClick={handleLogout}
+        >
+          Sign out
+        </button>
       </div>
     </div>
   );
