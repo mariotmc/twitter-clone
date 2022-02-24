@@ -1,0 +1,59 @@
+@use "functions" as *;
+@use "variables" as *;
+
+.header-search-bar {
+  ::placeholder {
+    color: rgb(136, 153, 166);
+  }
+}
+
+.trend-article:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.trends-nav {
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    padding: rem(0);
+    font-size: rem(13);
+  }
+
+  li {
+    margin: rem(2) 0;
+    padding-right: rem(12);
+    list-style: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a,
+  li,
+  span {
+    color: var(--gray);
+  }
+
+  span {
+    margin-left: 10%;
+    font-size: rem(13);
+  }
+}
+
+.message-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(34);
+  height: rem(34);
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+  }
+}

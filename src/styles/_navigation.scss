@@ -3,19 +3,39 @@
 
 #navigation-container {
   .nav-items {
+    position: relative;
     width: rem(251);
     height: 100%;
     margin-left: auto;
-    padding: 0 rem(12);
+    margin-right: rem(41);
+    padding: rem(13) rem(12);
   }
 
-  .nav-item {
+  .nav-item-container {
     width: fit-content;
+    height: rem(58);
 
-    svg {
-      width: rem(26);
-      height: rem(26);
-      fill: #fff;
+    .nav-item {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      height: rem(50);
+      cursor: pointer;
+      padding: rem(12);
+      font-size: rem(20);
+      font-weight: 400;
+      border-radius: rem(9999);
+
+      svg {
+        width: rem(26);
+        height: rem(26);
+        margin-right: rem(15);
+        fill: #fff;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     }
   }
 }
@@ -23,6 +43,6 @@
 .header-icon {
   width: rem(50);
   height: rem(30);
+  margin-left: rem(-10);
   fill: #fff;
-  text-align: left;
 }
