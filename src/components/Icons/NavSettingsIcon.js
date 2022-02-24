@@ -1,5 +1,3 @@
-import React from "react";
-
 export const NavSettingsIcon = () => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
