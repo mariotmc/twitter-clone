@@ -27,7 +27,8 @@ const Trends = () => {
           </g>
         </svg>
         <input
-          type="text"
+          className="trends-search-bar"
+          type="search"
           placeholder="Search Twitter"
           style={{
             backgroundColor: "transparent",
