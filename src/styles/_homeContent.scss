@@ -1,0 +1,18 @@
+@use "functions" as *;
+@use "variables" as *;
+
+#new-tweet {
+  &::placeholder {
+    transform: translateY(100%);
+    color: rgb(136, 153, 166);
+  }
+
+  &:focus::placeholder {
+    transition: color 200ms ease-in;
+    color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -5,6 +5,10 @@
   ::placeholder {
     color: rgb(136, 153, 166);
   }
+
+  .trends-search-bar::-webkit-search-cancel-button {
+    display: none;
+  }
 }
 
 .trend-article:hover {
