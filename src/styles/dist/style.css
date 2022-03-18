@@ -747,6 +747,9 @@ a:active {
 .header-search-bar ::placeholder {
   color: #8899a6;
 }
+.header-search-bar .trends-search-bar::-webkit-search-cancel-button {
+  display: none;
+}
 
 .trend-article:hover {
   background-color: rgba(255, 255, 255, 0.03);
@@ -791,4 +794,36 @@ a:active {
 }
 .message-icon-container:hover {
   background-color: rgba(239, 243, 244, 0.1);
+}
+
+#new-tweet::-moz-placeholder {
+  transform: translateY(100%);
+  color: #8899a6;
+}
+
+#new-tweet:-ms-input-placeholder {
+  transform: translateY(100%);
+  color: #8899a6;
+}
+
+#new-tweet::placeholder {
+  transform: translateY(100%);
+  color: #8899a6;
+}
+#new-tweet:focus::-moz-placeholder {
+  -moz-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+  color: transparent;
+}
+#new-tweet:focus:-ms-input-placeholder {
+  -ms-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+  color: transparent;
+}
+#new-tweet:focus::placeholder {
+  transition: color 200ms ease-in;
+  color: transparent;
+}
+#new-tweet::-webkit-scrollbar {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
