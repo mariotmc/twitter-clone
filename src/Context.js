@@ -98,7 +98,8 @@ export const ContextProvider = ({ children }) => {
       const { name, email, day, month, year } = formData;
       await signUp(email, password);
       await createUser(name, email, day, month, year);
-      localStorage.setItem("user", JSON.stringify(currentUser));
+      localStorage.setItem("user", JSON.stringify([]));
+      localStorage.setItem("image", JSON.stringify(currentUser.photoURL));
       await redirectUser("");
     } catch (error) {
       console.error(error);
@@ -119,7 +120,8 @@ export const ContextProvider = ({ children }) => {
       setError("");
       setLoading(true);
       await login(loginData.signInEmail, loginData.signInPassword);
-      localStorage.setItem("user", JSON.stringify(currentUser));
+      localStorage.setItem("user", JSON.stringify([]));
+      localStorage.setItem("image", JSON.stringify(currentUser.photoURL));
       await redirectUser("");
       setLoginData({ signInEmail: "", signInPassword: "" });
       setPage(1);
@@ -142,6 +144,7 @@ export const ContextProvider = ({ children }) => {
     try {
       await logout();
       localStorage.removeItem("user");
+      localStorage.removeItem("image");
       redirectUser("login");
     } catch (error) {
       setError("Failed to log out");
@@ -157,6 +160,7 @@ export const ContextProvider = ({ children }) => {
       setError("");
       await signInWithGoogle();
       localStorage.setItem("user", JSON.stringify([]));
+      localStorage.setItem("image", JSON.stringify(auth.currentUser.photoURL));
       await redirectUser("");
     } catch (error) {
       console.error(error);
@@ -189,7 +193,6 @@ export const ContextProvider = ({ children }) => {
       e.preventDefault();
       setError("");
       const exists = await checkIfEmailExists(email);
-      // need to add error message + border color change when invalid input
       if (page === 1) {
         if (pageContext === "login") {
           if (!exists) {
